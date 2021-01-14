@@ -1,0 +1,50 @@
+<h1 align="center">
+	<br>
+		<a href="https://github.com/MNThomson/ZoomBuddy">
+			<img src=assets/ZoomBuddy.png alt="ZoomBuddy Logo" width="200">
+		</a>
+	<br>
+		Zoom Buddy
+	<br>
+</h1>
+<h4 align="center">
+	Automatically Join Scheduled Zoom calls
+</h4>
+<h4 align="center">
+	<a href="https://github.com/MNThomson/ZoomBuddy/releases/latest">
+		🔰 Download ZoomBuddy 🔰
+	</a>
+</h4>
+
+## Install
+
+### Recommended Install
+
+Download the latest version of ZoomBuddy from the [Releases page](https://github.com/MNThomson/ZoomBuddy/releases/latest).
+
+### Advanced Install
+
+- Try the development version by cloning the Git repository:
+	```sh
+	$ git clone https://github.com/MNThomson/ZoomBuddy.git
+	```
+
+- Run `ZoomBuddy.py` from the command line:
+	```sh
+	$ python3 ZoomBuddy.py
+	```
+
+- Build your own executable through [Pyinstaller](https://pypi.org/project/pyinstaller) with the command:
+	```sh
+	$ pyinstaller --onefile --clean --distpath . --icon=assets/ZoomBuddy.ico ZoomBuddy.py
+	```
+
+## Setup
+
+An file `EXAMPLE_ZoomData.csv` is provided. Rename this to `ZoomData.csv` with your meeting ID's and passwords. Time is in 24hr format with a `.` between the hour and minute (e.g. `6:45PM` would be `18.45`)
+
+## Usage
+
+Run the executable `ZoomBuddy.exe` (or the `.py`) and it will search for `ZoomData.csv`. If a Zoom call is happening within ±15mins, ZoomBuddy will automatically join that call. If it cannot detect a meeting, a window will open asking which meeting (in `ZoomData.csv`) to join
+
+If any cli argument is given, it will launch into the selection mode and bypass checking which meeting to join
