@@ -1,5 +1,4 @@
 <h1 align="center">
-	<br>
 		<a href="https://github.com/MNThomson/ZoomBuddy">
 			<img src=assets/ZoomBuddy.png alt="ZoomBuddy Logo" width="200">
 		</a>
@@ -10,11 +9,17 @@
 <h4 align="center">
 	Automatically Join Scheduled Zoom calls
 </h4>
+<p align="center">
+  <a href="https://github.com/MNThomson/ZoomBuddy/releases/latest"><img src="https://img.shields.io/github/release/MNThomson/ZoomBuddy.svg?style=for-the-badge" alt="github release version"></a>
+  <a href="https://github.com/MNThomson/ZoomBuddy/releases/latest"><img src="https://img.shields.io/github/downloads/MNThomson/ZoomBuddy/total?style=for-the-badge" alt="github release downloads"></a>
+  <a href="https://github.com/MNThomson/Test/commit"><img src="https://img.shields.io/github/last-commit/MNThomson/ZoomBuddy?style=for-the-badge" alt="github last commit"></a>
+</p>
 <h4 align="center">
 	<a href="https://github.com/MNThomson/ZoomBuddy/releases/latest">
 		🔰 Download ZoomBuddy 🔰
 	</a>
 </h4>
+
 
 ## Install
 
@@ -48,3 +53,9 @@ An file `EXAMPLE_ZoomData.csv` is provided. Rename this to `ZoomData.csv` with y
 Run the executable `ZoomBuddy.exe` (or the `.py`) and it will search for `ZoomData.csv`. If a Zoom call is happening within ±15mins, ZoomBuddy will automatically join that call. If it cannot detect a meeting, a window will open asking which meeting (in `ZoomData.csv`) to join
 
 If any cli argument is given, it will launch into the selection mode and bypass checking which meeting to join
+
+## To Do
+
+- [ ] Add MacOS/Linux support (find binary installation location)
+- [ ] Add system tray icon
+- [ ] Fix the time system to be base 60

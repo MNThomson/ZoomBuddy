@@ -1,10 +1,11 @@
 #data
 ZoomData.csv
 README.html
-/assets/ZoomBuddy.psd
+/assets/*.psd
 
 #Pyinstaller output
 /__pycache__
 /build
 ZoomBuddy.spec
 ZoomBuddy.exe
+Build.bat
