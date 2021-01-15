@@ -46,7 +46,7 @@ Download the latest version of ZoomBuddy from the [Releases page](https://github
 
 ## Setup
 
-An file `EXAMPLE_ZoomData.csv` is provided. Rename this to `ZoomData.csv` with your meeting ID's and passwords. Time is in 24hr format with a `.` between the hour and minute (e.g. `6:45PM` would be `18.45`)
+A file `EXAMPLE_ZoomData.csv` is provided. Rename this to `ZoomData.csv` with your meeting ID's and passwords. Time is in 24hr format with a `.` between the hour and minute (e.g. `6:45PM` would be `18.45`)
 
 ## Usage
 
@@ -59,3 +59,4 @@ If any cli argument is given, it will launch into the selection mode and bypass 
 - [ ] Add MacOS/Linux support (find binary installation location)
 - [ ] Add system tray icon
 - [ ] Fix the time system to be base 60
+- [ ] Add code to check if version is current

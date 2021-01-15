@@ -2,6 +2,8 @@
 ZoomData.csv
 README.html
 /assets/*.psd
+Ideas.md
+Test.py
 
 #Pyinstaller output
 /__pycache__

@@ -1,4 +1,4 @@
-import datetime, os, csv, sys
+import datetime, time, csv, sys, os
 
 def main():
 	if len(sys.argv) == 1:
@@ -8,9 +8,16 @@ def main():
 
 def auto():
 	#Open the ZoomData csv file and skip first line (since it's the formatting)
-	file = open('ZoomData.csv', 'r')
-	csvfile = csv.reader(file)
-	next(csvfile)
+	try:
+		file = open('ZoomData.csv', 'r')
+		csvfile = csv.reader(file)
+		next(csvfile)
+	except FileNotFoundError:
+		print("ZoomData.csv Does Not Exist!!!")
+		print("Follow the instructions to setup ZoomData.csv")
+		time.sleep(5)
+		sys.exit()
+	
 
 	#Get time and date
 	day = datetime.datetime.today().weekday()
@@ -34,9 +41,15 @@ def auto():
 
 def manual():
 	#Open the ZoomData csv file and skip first line (since it's the formatting)
-	file = open('ZoomData.csv', 'r')
-	csvfile = csv.reader(file)
-	next(csvfile)
+	try:
+		file = open('ZoomData.csv', 'r')
+		csvfile = csv.reader(file)
+		next(csvfile)
+	except FileNotFoundError:
+		print("ZoomData.csv Does Not Exist!!!")
+		print("Follow the instructions to setup ZoomData.csv")
+		time.sleep(5)
+		sys.exit()
 
 	#Print out each possible option
 	print("Choose an option below:")
