@@ -60,3 +60,5 @@ If any cli argument is given, it will launch into the selection mode and bypass 
 - [ ] Add system tray icon
 - [ ] Fix the time system to be base 60
 - [ ] Add code to check if version is current
+- [ ] Download example csv if not detected (option box)
+- [ ] Refactor imports to make the executable smaller

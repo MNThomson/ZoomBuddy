@@ -81,8 +81,18 @@ def manual():
 	connect(meetingID, passWD)
 
 def connect(meetingID, passWD):
+	if sys.platform == "linux" or sys.platform == "linux2":
+		print("Linux is currently unsupported. Please open an issue with the installation location and it will be added")
+	elif sys.platform == "darwin":
+		print("MacOS is currently unsupported. Please open an issue with the installation location and it will be added")
+	elif sys.platform == "win32":
+		Path = "%appdata%\\Zoom\\bin\\Zoom.exe"
+	else:
+		print("Operating System unknown. Please manually set this is the python file")
+	sys.exit()
+
 	#Command to join zoom meeting
-	command="%appdata%\\Zoom\\bin\\Zoom.exe --url=zoommtg://zoom.us/join?confno=" + meetingID + "^&pwd=" + passWD
+	command= Path + " --url=zoommtg://zoom.us/join?confno=" + meetingID + "^&pwd=" + passWD
 
 	#Execute command
 	os.system(command)
