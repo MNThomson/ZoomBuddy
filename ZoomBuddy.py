@@ -1,6 +1,10 @@
 import datetime, time, csv, sys, os
+from Update import *
 
 def main():
+	print(" _____                     ____            _     _\n|__  /___   ___  _ __ ___ | __ ) _   _  __| | __| |_   _\n  / // _ \\ / _ \\| '_ ` _ \\|  _ \\| | | |/ _` |/ _` | | | |\n / /| (_) | (_) | | | | | | |_) | |_| | (_| | (_| | |_| |\n/____\\___/ \\___/|_| |_| |_|____/ \\__,_|\\__,_|\\__,_|\\__, |\n                                                   |___/")
+	if getattr(sys, 'frozen', False):
+		update()
 	if len(sys.argv) == 1:
 		auto()
 	else:
