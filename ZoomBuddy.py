@@ -81,7 +81,6 @@ def manual():
 	except NameError:
 		print("Input Invalid")
 		sys.exit()
-
 	connect(meetingID, passWD)
 
 def connect(meetingID, passWD):
@@ -93,7 +92,7 @@ def connect(meetingID, passWD):
 		Path = "%appdata%\\Zoom\\bin\\Zoom.exe"
 	else:
 		print("Operating System unknown. Please manually set this is the python file")
-	sys.exit()
+		sys.exit()
 
 	#Command to join zoom meeting
 	command= Path + " --url=zoommtg://zoom.us/join?confno=" + meetingID + "^&pwd=" + passWD
