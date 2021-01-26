@@ -1,7 +1,12 @@
 import datetime, time, csv, sys, os
-from Update import *
+try:
+	from Update import *
+except:
+	pass
+
 
 def main():
+	#Figlet for ZoomBuddy
 	print(" _____                     ____            _     _\n|__  /___   ___  _ __ ___ | __ ) _   _  __| | __| |_   _\n  / // _ \\ / _ \\| '_ ` _ \\|  _ \\| | | |/ _` |/ _` | | | |\n / /| (_) | (_) | | | | | | |_) | |_| | (_| | (_| | |_| |\n/____\\___/ \\___/|_| |_| |_|____/ \\__,_|\\__,_|\\__,_|\\__, |\n                                                   |___/")
 	if getattr(sys, 'frozen', False):
 		update()
@@ -18,19 +23,20 @@ def auto():
 		next(csvfile)
 	except FileNotFoundError:
 		print("ZoomData.csv Does Not Exist!!!")
-		print("Follow the instructions to setup ZoomData.csv")
+		print("Follow the instructions on Github to setup ZoomData.csv")
 		time.sleep(5)
 		sys.exit()
 	
 
 	#Get time and date
 	day = datetime.datetime.today().weekday()
-	now = float(datetime.datetime.now().strftime("%H.%M"))
+	time = int(datetime.datetime.now().strftime("%H"))*60 + int(datetime.datetime.now().strftime("%M"))
 
 	#Iterate through ZoomData.csv to find the specified class
 	for row in csvfile:
 		try:
-			if (now>float(row[day+4])-0.15) and (now<float(row[day+4])+0.15):
+			classtime = int(row[day+4].split(":")[0]) * 60 + int(row[day+4].split(":")[1])
+			if (time>classtime-15) and (time<classtime+15):
 				meetingID=row[2]
 				#Check if password exists
 				try:

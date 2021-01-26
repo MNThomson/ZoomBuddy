@@ -46,7 +46,7 @@ Download the latest version of ZoomBuddy from the [Releases page](https://github
 
 ## Setup
 
-A file `EXAMPLE_ZoomData.csv` is provided. Rename this to `ZoomData.csv` in the same folder as `ZoomBuddy.exe` with your meeting ID's and passwords. Time is in 24hr format with a `.` between the hour and minute (e.g. `6:45PM` would be `18.45`)
+A file `EXAMPLE_ZoomData.csv` is provided. Rename this to `ZoomData.csv` in the same folder as `ZoomBuddy.exe` with your meeting ID's and passwords. Time is in 24hr format with a `:` between the hour and minute (e.g. `6:45PM` would be `18:45`)
 
 ## Usage
 
@@ -61,9 +61,9 @@ On some Windows PC's, Windows Smart Screen will trigger when running an unknown 
 ## To Do
 
 - [x] Add update function
+- [x] Add code to check if version is current
+- [x] Fix the time system to be base 60
 - [ ] Add MacOS/Linux support (find binary installation location)
 - [ ] Add system tray icon
-- [ ] Fix the time system to be base 60
-- [ ] Add code to check if version is current
 - [ ] Download example csv if not detected (option box)
 - [ ] Refactor imports to make the executable smaller
