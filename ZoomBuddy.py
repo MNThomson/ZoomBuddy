@@ -21,12 +21,13 @@ def main():
 	else:
 		manual()
 
-def auto():
+def open_data():
 	#Open the ZoomData csv file and skip first line (since it's the formatting)
 	try:
 		file = open('ZoomData.csv', 'r')
 		csvfile = csv.reader(file)
 		next(csvfile)
+		return file, csvfile
 	except FileNotFoundError:
 		print("ZoomData.csv Does Not Exist!!!")
 		print("Please read the setup instructions for ZoomData.csv")
@@ -36,7 +37,10 @@ def auto():
 			webbrowser.open(URL)
 		sleep(1)
 		sys.exit()
-	
+
+def auto():
+	#Open the ZoomData
+	file, csvfile = open_data()
 
 	#Get time and date
 	day = datetime.today().weekday()
@@ -60,20 +64,8 @@ def auto():
 	manual()
 
 def manual():
-	#Open the ZoomData csv file and skip first line (since it's the formatting)
-	try:
-		file = open('ZoomData.csv', 'r')
-		csvfile = csv.reader(file)
-		next(csvfile)
-	except FileNotFoundError:
-		print("ZoomData.csv Does Not Exist!!!")
-		print("Please read the setup instructions for ZoomData.csv")
-		Choice = input('Would you like to be redirected to the instructions page? (Y/N)')
-		if Choice.lower() == 'yes' or Choice.lower() == 'y':
-			print('Redircting...')
-			webbrowser.open(URL)
-		sleep(1)
-		sys.exit()
+	#Open the ZoomData
+	file, csvfile = open_data()
 
 	#Print out each possible option
 	print("Choose an option below:")
