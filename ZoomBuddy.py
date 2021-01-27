@@ -1,9 +1,15 @@
-import datetime, time, csv, sys, os
+import webbrowser, time, csv, sys, os
+
+from os import system
+from datetime import datetime
+from time import sleep
+
 try:
 	from Update import *
 except:
 	pass
 
+URL = "https://github.com/MNThomson/ZoomBuddy"
 
 def main():
 	#Figlet for ZoomBuddy
@@ -23,14 +29,18 @@ def auto():
 		next(csvfile)
 	except FileNotFoundError:
 		print("ZoomData.csv Does Not Exist!!!")
-		print("Follow the instructions on Github to setup ZoomData.csv")
-		time.sleep(5)
+		print("Please read the setup instructions for ZoomData.csv")
+		Choice = input('Would you like to be redirected to the instructions page? (Y/N)')
+		if Choice.lower() == 'yes' or Choice.lower() == 'y':
+			print('Redircting...')
+			webbrowser.open(URL)
+		sleep(1)
 		sys.exit()
 	
 
 	#Get time and date
-	day = datetime.datetime.today().weekday()
-	time = int(datetime.datetime.now().strftime("%H"))*60 + int(datetime.datetime.now().strftime("%M"))
+	day = datetime.today().weekday()
+	time = int(datetime.now().strftime("%H"))*60 + int(datetime.now().strftime("%M"))
 
 	#Iterate through ZoomData.csv to find the specified class
 	for row in csvfile:
@@ -57,8 +67,12 @@ def manual():
 		next(csvfile)
 	except FileNotFoundError:
 		print("ZoomData.csv Does Not Exist!!!")
-		print("Follow the instructions to setup ZoomData.csv")
-		time.sleep(5)
+		print("Please read the setup instructions for ZoomData.csv")
+		Choice = input('Would you like to be redirected to the instructions page? (Y/N)')
+		if Choice.lower() == 'yes' or Choice.lower() == 'y':
+			print('Redircting...')
+			webbrowser.open(URL)
+		sleep(1)
 		sys.exit()
 
 	#Print out each possible option
@@ -104,7 +118,7 @@ def connect(meetingID, passWD):
 	command= Path + " --url=zoommtg://zoom.us/join?confno=" + meetingID + "^&pwd=" + passWD
 
 	#Execute command
-	os.system(command)
+	system(command)
 	sys.exit()
 
 if __name__ == "__main__":

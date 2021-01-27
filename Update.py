@@ -1,10 +1,10 @@
 import requests, webbrowser, sys
 
 VERSION = "1.0.3"
-URL = 'https://github.com/MNThomson/ZoomBuddy/releases/latest'
+Update_URL = 'https://github.com/MNThomson/ZoomBuddy/releases/latest'
 
 def update():
-	r = requests.get(URL)
+	r = requests.get(Update_URL)
 	CURRENT_VERSION = r.url.split("v")[1]
 
 	if (int(VERSION.replace('.','')) < int(CURRENT_VERSION.replace('.',''))):
@@ -14,7 +14,7 @@ def update():
 		if Choice.lower() == 'yes' or Choice.lower() == 'y':
 			#Yes to update
 			print('Redircting...')
-			webbrowser.open(URL)
+			webbrowser.open(Update_URL)
 			sys.exit()
 
 		else:
