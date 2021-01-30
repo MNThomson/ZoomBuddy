@@ -15,7 +15,7 @@ def update():
 			#Yes to update
 			print('Redircting...')
 			webbrowser.open(Update_URL)
-			sys.exit()
+			sys.exit(0)
 
 		else:
 			pass

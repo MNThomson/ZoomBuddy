@@ -12,7 +12,7 @@
 <p align="center">
   <a href="https://github.com/MNThomson/ZoomBuddy/releases/latest"><img src="https://img.shields.io/github/release/MNThomson/ZoomBuddy.svg?style=for-the-badge" alt="github release version"></a>
   <a href="https://github.com/MNThomson/ZoomBuddy/releases/latest"><img src="https://img.shields.io/github/downloads/MNThomson/ZoomBuddy/total?style=for-the-badge" alt="github release downloads"></a>
-  <a href="https://github.com/MNThomson/Test/commit"><img src="https://img.shields.io/github/last-commit/MNThomson/ZoomBuddy?style=for-the-badge" alt="github last commit"></a>
+  <a href="https://github.com/MNThomson/ZoomBuddy/commits"><img src="https://img.shields.io/github/last-commit/MNThomson/ZoomBuddy?style=for-the-badge" alt="github last commit"></a>
 </p>
 <h4 align="center">
 	<a href="https://github.com/MNThomson/ZoomBuddy/releases/latest">

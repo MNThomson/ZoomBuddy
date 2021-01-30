@@ -36,7 +36,7 @@ def open_data():
 			print('Redircting...')
 			webbrowser.open(URL)
 		sleep(1)
-		sys.exit()
+		sys.exit(0)
 
 def auto():
 	#Open the ZoomData
@@ -92,7 +92,7 @@ def manual():
 		meetingID
 	except NameError:
 		print("Input Invalid")
-		sys.exit()
+		sys.exit(1)
 	connect(meetingID, passWD)
 
 def connect(meetingID, passWD):
@@ -104,14 +104,14 @@ def connect(meetingID, passWD):
 		Path = "%appdata%\\Zoom\\bin\\Zoom.exe"
 	else:
 		print("Operating System unknown. Please manually set this is the python file")
-		sys.exit()
+		sys.exit(1)
 
 	#Command to join zoom meeting
 	command= Path + " --url=zoommtg://zoom.us/join?confno=" + meetingID + "^&pwd=" + passWD
 
 	#Execute command
 	system(command)
-	sys.exit()
+	sys.exit(0)
 
 if __name__ == "__main__":
 	main()
