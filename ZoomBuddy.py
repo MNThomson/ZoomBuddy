@@ -92,6 +92,14 @@ def manual():
 		meetingID
 	except NameError:
 		print("Input Invalid")
+		Choice = input('Try again? (Y/N)')
+		if Choice.lower() == 'yes' or Choice.lower() == 'y':
+			#Yes to update
+			system('cls' if os.name == 'nt' else 'clear')
+			print(" _____                     ____            _     _\n|__  /___   ___  _ __ ___ | __ ) _   _  __| | __| |_   _\n  / // _ \\ / _ \\| '_ ` _ \\|  _ \\| | | |/ _` |/ _` | | | |\n / /| (_) | (_) | | | | | | |_) | |_| | (_| | (_| | |_| |\n/____\\___/ \\___/|_| |_| |_|____/ \\__,_|\\__,_|\\__,_|\\__, |\n                                                   |___/")
+			manual()
+		else:
+			sys.exit(0)
 		sys.exit(1)
 	connect(meetingID, passWD)
 
