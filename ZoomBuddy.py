@@ -1,25 +1,67 @@
-import webbrowser, time, csv, sys, os
+import webbrowser, requests, json, csv, sys
 
-from os import system
+from os import system, name
 from datetime import datetime
 from time import sleep
 
-try:
-	from Update import *
-except:
-	pass
-
+VERSION = "1.0.4"
 URL = "https://github.com/MNThomson/ZoomBuddy"
+Update_URL = 'https://api.github.com/repos/mnthomson/zoombuddy/releases/latest'
 
 def main():
-	#Figlet for ZoomBuddy
-	print(" _____                     ____            _     _\n|__  /___   ___  _ __ ___ | __ ) _   _  __| | __| |_   _\n  / // _ \\ / _ \\| '_ ` _ \\|  _ \\| | | |/ _` |/ _` | | | |\n / /| (_) | (_) | | | | | | |_) | |_| | (_| | (_| | |_| |\n/____\\___/ \\___/|_| |_| |_|____/ \\__,_|\\__,_|\\__,_|\\__, |\n                                                   |___/")
-	if getattr(sys, 'frozen', False):
-		update()
+	figlet()
+	update()
 	if len(sys.argv) == 1:
 		auto()
 	else:
 		manual()
+
+def figlet():
+	#Figlet for ZoomBuddy
+	print("\
+ _____                     ____            _     _\n\
+|__  /___   ___  _ __ ___ | __ ) _   _  __| | __| |_   _\n\
+  / // _ \\ / _ \\| '_ ` _ \\|  _ \\| | | |/ _` |/ _` | | | |\n\
+ / /| (_) | (_) | | | | | | |_) | |_| | (_| | (_| | |_| |\n\
+/____\\___/ \\___/|_| |_| |_|____/ \\__,_|\\__,_|\\__,_|\\__, |")
+
+	print("v" + VERSION, end ="")
+	for i in range(1,41-len(VERSION)):
+		print(" ", end ="")
+	print("MNThomson |___/")
+
+def update():
+	response = requests.get(Update_URL).text
+	data = json.loads(response)
+	CURRENT_VERSION = data['tag_name'].split("v")[1]
+
+	if (int(VERSION.replace('.','')) < int(CURRENT_VERSION.replace('.',''))):
+		print("Downloaded Version:  " + VERSION)
+		print("Current Version:     " + CURRENT_VERSION)
+		Choice = input('Would you like to update ZoomBuddy? (Y/N)')
+		if Choice.lower() == 'yes' or Choice.lower() == 'y':
+			#Yes to update
+			if getattr(sys, 'frozen', False):
+				print('Redircting...')
+				webbrowser.open(Update_URL)
+				sys.exit(0)
+			else:
+				Choice = input('Run a git pull? (Y/N)')
+				if Choice.lower() == 'yes' or Choice.lower() == 'y':
+					#Yes to update
+					system("git pull")
+					print("Done. Exiting...")
+					sleep(1)
+					sys.exit(0)
+				else:
+					pass
+						
+		else:
+			pass
+		system('cls' if name == 'nt' else 'clear')
+		figlet()
+	else:
+		pass
 
 def open_data():
 	#Open the ZoomData csv file and skip first line (since it's the formatting)
@@ -95,8 +137,8 @@ def manual():
 		Choice = input('Try again? (Y/N)')
 		if Choice.lower() == 'yes' or Choice.lower() == 'y':
 			#Yes to update
-			system('cls' if os.name == 'nt' else 'clear')
-			print(" _____                     ____            _     _\n|__  /___   ___  _ __ ___ | __ ) _   _  __| | __| |_   _\n  / // _ \\ / _ \\| '_ ` _ \\|  _ \\| | | |/ _` |/ _` | | | |\n / /| (_) | (_) | | | | | | |_) | |_| | (_| | (_| | |_| |\n/____\\___/ \\___/|_| |_| |_|____/ \\__,_|\\__,_|\\__,_|\\__, |\n                                                   |___/")
+			system('cls' if name == 'nt' else 'clear')
+			figlet()
 			manual()
 		else:
 			sys.exit(0)
@@ -106,12 +148,17 @@ def manual():
 def connect(meetingID, passWD):
 	if sys.platform == "linux" or sys.platform == "linux2":
 		print("Linux is currently unsupported. Please open an issue with the installation location and it will be added")
+		sleep(5)
+		sys.exit(1)
 	elif sys.platform == "darwin":
 		print("MacOS is currently unsupported. Please open an issue with the installation location and it will be added")
+		sleep(5)
+		sys.exit(1)
 	elif sys.platform == "win32":
 		Path = "%appdata%\\Zoom\\bin\\Zoom.exe"
 	else:
 		print("Operating System unknown. Please manually set this is the python file")
+		sleep(5)
 		sys.exit(1)
 
 	#Command to join zoom meeting
