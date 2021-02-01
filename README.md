@@ -54,7 +54,7 @@ Run the executable `ZoomBuddy.exe` (or the `.py`) and it will search for `ZoomDa
 
 If any cli argument is given, it will launch into the selection mode and bypass checking which meeting to join
 
-# Annoying Smart Screen Warning
+## Annoying Smart Screen Warning
 
 On some Windows PC's, Windows Smart Screen will trigger when running an unknown file. If this happens, right click on the file and click on `properties`. At the bottom of the pop-up there is a section which says `Security: This file came from another computer...`, just click the button to the right titled `Unblock` and Windows Smart Screen will no longer trigger
 
