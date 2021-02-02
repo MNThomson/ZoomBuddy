@@ -6,7 +6,8 @@ from time import sleep
 
 VERSION = "1.0.4"
 URL = "https://github.com/MNThomson/ZoomBuddy"
-Update_URL = 'https://api.github.com/repos/mnthomson/zoombuddy/releases/latest'
+API_URL = 'https://api.github.com/repos/mnthomson/zoombuddy/releases/latest'
+Update_URL = 'https://github.com/MNThomson/ZoomBuddy/releases/latest'
 
 def main():
 	figlet()
@@ -24,20 +25,19 @@ def figlet():
   / // _ \\ / _ \\| '_ ` _ \\|  _ \\| | | |/ _` |/ _` | | | |\n\
  / /| (_) | (_) | | | | | | |_) | |_| | (_| | (_| | |_| |\n\
 /____\\___/ \\___/|_| |_| |_|____/ \\__,_|\\__,_|\\__,_|\\__, |")
-
 	print("v" + VERSION, end ="")
 	for i in range(1,41-len(VERSION)):
 		print(" ", end ="")
 	print("MNThomson |___/")
 
 def update():
-	response = requests.get(Update_URL).text
+	response = requests.get(API_URL).text
 	data = json.loads(response)
 	CURRENT_VERSION = data['tag_name'].split("v")[1]
 
 	if (int(VERSION.replace('.','')) < int(CURRENT_VERSION.replace('.',''))):
-		print("Downloaded Version:  " + VERSION)
-		print("Current Version:     " + CURRENT_VERSION)
+		print("Downloaded Version: v" + VERSION)
+		print("Current Version:    v" + CURRENT_VERSION)
 		Choice = input('Would you like to update ZoomBuddy? (Y/N)')
 		if Choice.lower() == 'yes' or Choice.lower() == 'y':
 			#Yes to update
@@ -46,16 +46,15 @@ def update():
 				webbrowser.open(Update_URL)
 				sys.exit(0)
 			else:
-				Choice = input('Run a git pull? (Y/N)')
+				print("Either run a git pull or reclone this repo.")
+				Choice = input('Would you like to be redirected to the Github page? (Y/N)')
 				if Choice.lower() == 'yes' or Choice.lower() == 'y':
 					#Yes to update
-					system("git pull")
-					print("Done. Exiting...")
-					sleep(1)
+					print('Redircting...')
+					webbrowser.open(Update_URL)
 					sys.exit(0)
 				else:
 					pass
-						
 		else:
 			pass
 		system('cls' if name == 'nt' else 'clear')
