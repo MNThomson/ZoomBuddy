@@ -31,7 +31,10 @@ def figlet():
 	print("MNThomson |___/")
 
 def update():
-	response = requests.get(API_URL).text
+	try:
+		response = requests.get(API_URL).text
+	except:
+		return
 	data = json.loads(response)
 	CURRENT_VERSION = data['tag_name'].split("v")[1]
 
