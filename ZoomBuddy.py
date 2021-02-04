@@ -149,9 +149,9 @@ def manual():
 
 def connect(meetingID, passWD):
 	if sys.platform == "linux" or sys.platform == "linux2":
-		print("Linux is currently unsupported. Please open an issue with the installation location and it will be added")
-		sleep(5)
-		sys.exit(1)
+		Path = "/opt/zoom/zoom"
+		print("Linux is currently under developement. Please open a Github issue is an error occurs")
+		sleep(1)
 	elif sys.platform == "darwin":
 		print("MacOS is currently unsupported. Please open an issue with the installation location and it will be added")
 		sleep(5)
