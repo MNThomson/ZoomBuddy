@@ -1,6 +1,6 @@
 import webbrowser, requests, json, csv, sys
 
-from os import system, name
+from os import system, name, path, rename
 from datetime import datetime
 from time import sleep
 
@@ -73,12 +73,20 @@ def open_data():
 		next(csvfile)
 		return file, csvfile
 	except FileNotFoundError:
-		print("ZoomData.csv Does Not Exist!!!")
-		print("Please read the setup instructions for ZoomData.csv")
-		Choice = input('Would you like to be redirected to the instructions page? (Y/N)')
-		if Choice.lower() == 'yes' or Choice.lower() == 'y':
-			print('Redircting...')
-			webbrowser.open(URL)
+		if path.isfile('EXAMPLE_ZoomData.csv'):
+			print("Found file named: EXAMPLE_ZoomData.csv")
+			Choice = input('Would you like to rename it to ZoomData.csv? (Y/N)')
+			if Choice.lower() == 'yes' or Choice.lower() == 'y':
+				print('Renaming...')
+				rename("EXAMPLE_ZoomData.csv", "ZoomData.csv")
+				print("Finished renaming. Please rerun ZoomBuddy!")
+		else:
+			print("ZoomData.csv Does Not Exist!")
+			print("Please read the setup instructions for ZoomData.csv")
+			Choice = input('Would you like to be redirected to the instructions page? (Y/N)')
+			if Choice.lower() == 'yes' or Choice.lower() == 'y':
+				print('Redircting...')
+				webbrowser.open(URL)
 		sleep(1)
 		sys.exit(0)
 
