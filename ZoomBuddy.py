@@ -176,7 +176,7 @@ def connect(meetingID, passWD):
 		sleep(5)
 		sys.exit(1)
 
-	#Command to join zoom meeting
+	#Command to join zoom meeting from Zoom binary
 	command = Path + " --url=zoommtg://zoom.us/join?confno=" + meetingID + "^&pwd=" + passWD
 
 	#Execute command
