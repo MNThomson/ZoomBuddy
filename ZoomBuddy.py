@@ -1,10 +1,10 @@
-import webbrowser, requests, json, csv, sys
+import webbrowser, subprocess, requests, json, csv, sys
 
 from os import system, name, path, rename
 from datetime import datetime
 from time import sleep
 
-VERSION = "1.0.4"
+VERSION = "1.0.5"
 URL = "https://github.com/MNThomson/ZoomBuddy"
 API_URL = 'https://api.github.com/repos/mnthomson/zoombuddy/releases/latest'
 Update_URL = 'https://github.com/MNThomson/ZoomBuddy/releases/latest'
@@ -30,6 +30,7 @@ def figlet():
 		print(" ", end ="")
 	print("MNThomson |___/")
 
+#Check for updates
 def update():
 	try:
 		response = requests.get(API_URL).text
@@ -65,6 +66,7 @@ def update():
 	else:
 		pass
 
+#Open the ZoomData file with exceptions
 def open_data():
 	#Open the ZoomData csv file and skip first line (since it's the formatting)
 	try:
@@ -90,6 +92,7 @@ def open_data():
 		sleep(1)
 		sys.exit(0)
 
+#Automatically join a meeting that is +-15 minutes
 def auto():
 	#Open the ZoomData
 	file, csvfile = open_data()
@@ -115,6 +118,7 @@ def auto():
 	print("No meetinges found for this time!")
 	manual()
 
+#Show a popup to choose which meeting to join
 def manual():
 	#Open the ZoomData
 	file, csvfile = open_data()
@@ -155,6 +159,7 @@ def manual():
 		sys.exit(1)
 	connect(meetingID, passWD)
 
+#Connect to the meeting
 def connect(meetingID, passWD):
 	if sys.platform == "linux" or sys.platform == "linux2":
 		Path = "/opt/zoom/zoom"
@@ -172,10 +177,13 @@ def connect(meetingID, passWD):
 		sys.exit(1)
 
 	#Command to join zoom meeting
-	command= Path + " --url=zoommtg://zoom.us/join?confno=" + meetingID + "^&pwd=" + passWD
+	command = Path + " --url=zoommtg://zoom.us/join?confno=" + meetingID + "^&pwd=" + passWD
 
 	#Execute command
-	system(command)
+	try:
+		subprocess.run(command.split(), shell=True, timeout=1)
+	except subprocess.TimeoutExpired:
+		pass
 	sys.exit(0)
 
 if __name__ == "__main__":
