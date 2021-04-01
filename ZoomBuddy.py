@@ -151,7 +151,7 @@ def manual():
 		Choice = input('Try again? (Y/N)')
 		if Choice.lower() == 'yes' or Choice.lower() == 'y':
 			#Yes to update
-			system('cls' if name == 'nt' else 'clear')
+			system("cls||clear")
 			figlet()
 			manual()
 		else:
@@ -161,23 +161,19 @@ def manual():
 
 #Connect to the meeting
 def connect(meetingID, passWD):
+	#Command to join zoom meeting from Zoom binary
 	if sys.platform == "linux" or sys.platform == "linux2":
-		Path = "/opt/zoom/zoom"
+		command = "/opt/zoom/zoom --url=zoommtg://zoom.us/join?confno=" + meetingID + "&pwd=" + passWD
 		print("Linux is currently under developement. Please open a Github issue if an error occurs")
-		sleep(1)
 	elif sys.platform == "darwin":
-		print("MacOS is currently unsupported. Please open an issue with the installation location and it will be added")
-		sleep(5)
-		sys.exit(1)
+		command = "open zoommtg://zoom.us/join?confno=" + meetingID + "&pwd=" + passWD
+		print("MacOS is currently under developement. Please open a Github issue if an error occurs")
 	elif sys.platform == "win32":
-		Path = "%appdata%\\Zoom\\bin\\Zoom.exe"
+		command = "%appdata%\\Zoom\\bin\\Zoom.exe --url=zoommtg://zoom.us/join?confno=" + meetingID + "^&pwd=" + passWD
 	else:
 		print("Operating System unknown. Please manually set this is the python file")
 		sleep(5)
 		sys.exit(1)
-
-	#Command to join zoom meeting from Zoom binary
-	command = Path + " --url=zoommtg://zoom.us/join?confno=" + meetingID + "^&pwd=" + passWD
 
 	#Execute command
 	try:

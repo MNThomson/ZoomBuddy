@@ -69,5 +69,5 @@ On some Windows PC's, Windows Smart Screen will trigger when running an unknown 
 - [x] Optimized update function
 - [x] Fix hanging terminal after joining class
 - [x] Refactor imports to make the executable smaller
-- [ ] Add MacOS/Linux support (find binary installation location)
+- [x] Add MacOS/Linux support (find binary installation location)
 - [ ] Add system tray icon
