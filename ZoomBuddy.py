@@ -57,14 +57,8 @@ def update():
 					print('Redircting...')
 					webbrowser.open(Update_URL)
 					sys.exit(0)
-				else:
-					pass
-		else:
-			pass
-		system('cls' if name == 'nt' else 'clear')
+		system("cls||clear")
 		figlet()
-	else:
-		pass
 
 #Open the ZoomData file with exceptions
 def open_data():

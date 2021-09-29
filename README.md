@@ -10,9 +10,9 @@
 	Automatically Join Scheduled Zoom calls
 </h4>
 <p align="center">
-  <a href="https://github.com/MNThomson/ZoomBuddy/releases/latest"><img src="https://img.shields.io/github/release/MNThomson/ZoomBuddy.svg?style=for-the-badge" alt="github release version"></a>
-  <a href="https://github.com/MNThomson/ZoomBuddy/releases/latest"><img src="https://img.shields.io/github/downloads/MNThomson/ZoomBuddy/total?style=for-the-badge" alt="github release downloads"></a>
-  <a href="https://github.com/MNThomson/ZoomBuddy/commits"><img src="https://img.shields.io/github/last-commit/MNThomson/ZoomBuddy?style=for-the-badge" alt="github last commit"></a>
+	<a href="https://github.com/MNThomson/ZoomBuddy/releases/latest"><img src="https://img.shields.io/github/release/MNThomson/ZoomBuddy.svg?style=for-the-badge" alt="github release version"></a>
+	<a href="https://github.com/MNThomson/ZoomBuddy/releases/latest"><img src="https://img.shields.io/github/downloads/MNThomson/ZoomBuddy/total?style=for-the-badge" alt="github release downloads"></a>
+	<a href="https://github.com/MNThomson/ZoomBuddy/commits"><img src="https://img.shields.io/github/last-commit/MNThomson/ZoomBuddy?style=for-the-badge" alt="github last commit"></a>
 </p>
 <h4 align="center">
 	<a href="https://github.com/MNThomson/ZoomBuddy/releases/latest">
@@ -57,17 +57,3 @@ If any cli argument is given, it will launch into the selection mode and bypass 
 ## Annoying Smart Screen Warning
 
 On some Windows PC's, Windows Smart Screen will trigger when running an unknown file. If this happens, right click on the file and click on `properties`. At the bottom of the pop-up there is a section which says `Security: This file came from another computer...`, just click the button to the right titled `Unblock` and Windows Smart Screen will no longer trigger
-
-## To Do
-
-- [x] Add update function
-- [x] Add code to check if version is current
-- [x] Fix the time system to be base 60
-- [x] Download example csv if not detected (option box)
-- [x] Added an `open_data` function to remove duplicate code
-- [x] Optimize image size in `/assets`
-- [x] Optimized update function
-- [x] Fix hanging terminal after joining class
-- [x] Refactor imports to make the executable smaller
-- [x] Add MacOS/Linux support (find binary installation location)
-- [ ] Add system tray icon
